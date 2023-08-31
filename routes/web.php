@@ -47,6 +47,10 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
 });
 
+Route::get('/chartjs', function () {
+    return view('chartjs');
+});
+
 Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
 
 require __DIR__.'/auth.php';
