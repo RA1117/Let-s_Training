@@ -3,6 +3,7 @@
         　Blog
     </x-slot>
         {{ $post->updated_at}}
+        <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
         <h1 class='title'>
             {{ $post->title }}
         </h1>
@@ -10,7 +11,6 @@
             <div class='content_post'>
                 <h3>本文</h3>
                 <p class='body'>{{ $post->body }}</p>
-                <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
             </div>
         </div>
         <div class='footer'>
