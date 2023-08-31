@@ -20,9 +20,10 @@ class PostController extends Controller
         return view('posts/show')->with(['post' => $post]);
     }
     
-    public function create(User $user)
+    public function create()
     {
-        return view('posts/create')->with(['users' => $user->get()]);
+        $user = \Auth::user();
+        return view('posts/create', compact('user'));
     }
     
     public function store(PostRequest $request, Post $post)
