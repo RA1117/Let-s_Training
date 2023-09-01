@@ -20,9 +20,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/chartjs', function () {
+    return view('chartjs');
+});
+
+/*Route::get('/records/new_create', function () {
+    return view('records.new');
+});*/
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,10 +40,14 @@ Route::middleware('auth')->group(function () {
 });
 
 Route::controller(RecordController::class)->middleware(['auth'])->group(function(){
+    Route::post('/records/create', 'new_store')->name('record.new_store');
+    Route::get('/records/new_create', 'new_create')->name('record.new_create');
     Route::get('/records', 'index')->name('record.index');
     Route::post('/records', 'store')->name('record.store');
     Route::get('/records/create', 'create')->name('record.create');
     Route::get('/records/{record}', 'show')->name('record.show');
+    //Route::get('/records/new_create', 'index')->name('record.new_create');
+    //Route::post('/records/create', 'new_store')->name('record.new_store');
 });
 
 Route::controller(PostController::class)->middleware(['auth'])->group(function(){
@@ -45,10 +58,6 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
-});
-
-Route::get('/chartjs', function () {
-    return view('chartjs');
 });
 
 Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
