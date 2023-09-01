@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
             RecordSeeder::class,
+            TrainingSeeder::class,
         ]);
     }
 }

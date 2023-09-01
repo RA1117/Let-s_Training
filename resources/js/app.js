@@ -1,6 +1,6 @@
+import './chartjs';
 import './bootstrap';
 
-import './chartjs';
 
 import Alpine from 'alpinejs';
 

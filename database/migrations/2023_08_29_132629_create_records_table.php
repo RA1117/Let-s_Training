@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('records', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable()->constrained();
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->date('date')->nullable();
             $table->string('training_name')->nullable();
             $table->double('training_weight')->nullable();

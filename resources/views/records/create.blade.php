@@ -15,8 +15,16 @@
             </div>
             <div class='kind'>
                 <h2>種類</h2>
-                <input type='text' name='record[training_name]' placeholder='トレーニング種目'>
+                <select name="record[training_id]">
+                    @foreach($trainings as $training)
+                        <option value="{{ $training->id }}">{{ $training->training_name }}</option>
+                    @endforeach
+                </select>
             </div>
+            <div class='new_create'>
+                <a href='/records/new_create'>新規</a>
+            </div>
+            <br>
             <div class='training_weight'>
                 <h2>重量</h2>
                 <input type='text' name='record[training_weight]' placeholder='重量[kg]'>
