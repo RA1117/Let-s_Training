@@ -11,6 +11,7 @@
             <div class='content_post'>
                 <h3>本文</h3>
                 <p class='body'>{{ $post->body }}</p>
+                <img src='{{ asset($post->image_path) }}'>
             </div>
         </div>
         <div class='footer'>

@@ -15,6 +15,8 @@ class Post extends Model
         'user_id',
         'title',
         'body',
+        'image_name',
+        'image_path',
     ];
     
     public function getPaginateByLimit(int $limit_count = 5)
