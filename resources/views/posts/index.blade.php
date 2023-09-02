@@ -11,6 +11,9 @@
                     <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
                     <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
+                    @if($post->image_path != NULL)
+                        <img src='{{ asset($post->image_path) }}'>
+                    @endif
                 </div>
                 <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
                     @csrf

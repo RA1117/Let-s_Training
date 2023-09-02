@@ -29,7 +29,14 @@ class PostController extends Controller
     public function store(PostRequest $request, Post $post)
     {
         $input = $request['post'];
+        $dir = 'sample';
+        $file_name = $request->file('image')->getClientOriginalName();
+        $request->file('image')->storeAs('public/' . $dir, $file_name);
+        $post->image_name = $file_name;
+        $post->image_path = 'storage/' . $dir . '/' . $file_name;
         $post->fill($input)->save();
+        
+        //$post->save();
         return redirect('/posts/' . $post->id);
     }
     

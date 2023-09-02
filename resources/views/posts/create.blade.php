@@ -3,7 +3,7 @@
         　Create
     </x-slot>
         <h1>Blog Name</h1>
-        <form action='/posts' method='POST'>
+        <form action='/posts' method='POST' enctype='multipart/form-data'>
             @csrf
             <div class='title'>
                 <h2>Title</h2>
@@ -17,6 +17,10 @@
             </div>
             <div class='user_id'>
                 <input type='hidden' name='post[user_id]' value='{{ $user['id']}}'>
+            </div>
+            
+            <div class='img'>
+                <input type='file' name='image' class='form-control'>
             </div>
             
             <input type='submit' value='store'>
