@@ -49,7 +49,9 @@ class RecordSeeder extends Seeder
         ]);
         
         DB::table('records')->insert([
+                'date' => 20230823,
                 'training_name' => '腹筋',
+                'weight' => '62.7',
         ]);
     }
 }
