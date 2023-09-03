@@ -42,4 +42,12 @@ class Record extends Model
         return $this->belongsTo(Training::class);
     }
     
+    public function getdatePaginateByLimit(int $limit_count = 5)
+    {
+        $user = \Auth::user();
+        return  $this->where('user_id', $user['id'])->orderby('date', 'DESC')->paginate($limit_count);
+        //$user = \Auth::user();
+        //return view('records.index')->with(['records' => $record->where('user_id', $user['id'])->orderby('updated_at', 'DESC')->get()]);
+    }
+    
 }

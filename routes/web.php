@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecordController;
+use App\Http\Controllers\GraphController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,13 +21,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/chartjs', function () {
-    return view('chartjs');
-});
 
-/*Route::get('/records/new_create', function () {
-    return view('records.new');
-});*/
+Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
+    Route::get('records/graph', 'show')->name('graphshow');
+    
+});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
