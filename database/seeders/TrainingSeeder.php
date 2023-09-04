@@ -17,6 +17,11 @@ class TrainingSeeder extends Seeder
     public function run()
     {
         DB::table('trainings')->insert([
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('trainings')->insert([
                 'training_name' => '腕立て伏せ',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),

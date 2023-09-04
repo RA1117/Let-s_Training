@@ -1,13 +1,7 @@
-<h1>graph</h1>
-
-<!DOCTYPE html>
-<html lang="ja">
-<head>
- <meta charset="utf-8">
- <title>グラフ</title> 
-</head>
- <body>
-		<h1>グラフ</h1>
+<x-app-layout>
+    <x-slot name="header">
+        　Weight Graph
+    </x-slot>
    	<canvas id="myChart"></canvas>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
 	<!-- グラフを描画 -->
@@ -44,14 +38,7 @@
 				},
 			]
 		},
-		options: {
-			title: {
-				display: true,
-				text: '体重ログ（６ヶ月平均）'
-			}
-		}
    });
    </script>
    <!-- グラフを描画ここまで -->
- </body>
-</html>
+</x-app-layout>

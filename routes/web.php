@@ -23,7 +23,7 @@ Route::get('/', function () {
 
 
 Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
-    Route::get('records/graph', 'show')->name('graphshow');
+    Route::get('records/graphs/weight_graph', 'show')->name('graph_weight_show');
     
 });
 

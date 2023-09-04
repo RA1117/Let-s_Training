@@ -18,9 +18,10 @@ return new class extends Migration
             $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
             $table->date('date');
             $table->string('training_name')->nullable();
-            $table->double('training_weight')->nullable()->default(1);
+            $table->double('training_weight')->nullable();
             $table->integer('time')->nullable();
             $table->integer('set')->nullable();
+            $table->double('point')->nullable();
             $table->string('part_name')->nullable();
             $table->double('weight')->nullable();
             $table->time('run_time')->nullable();

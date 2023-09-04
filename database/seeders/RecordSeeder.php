@@ -23,6 +23,7 @@ class RecordSeeder extends Seeder
                 'training_weight' => '62.5',
                 'time' => '3',
                 'set' => '3',
+                'point' => '562.5',
                 'part_name' => '大胸筋',
                 'weight' => '62.5',
                 'run_time' => 11230,
@@ -39,6 +40,7 @@ class RecordSeeder extends Seeder
                 //'training_weight' => '62.5',
                 'time' => '3',
                 'set' => '3',
+                'point' => '9',
                 'part_name' => '大腿四頭筋',
                 'weight' => '62.5',
                 //'run_time' => 11230,
@@ -51,6 +53,9 @@ class RecordSeeder extends Seeder
         DB::table('records')->insert([
                 'date' => 20230823,
                 'training_name' => '腹筋',
+                'time' => '30',
+                'set' => '3',
+                'point' => '90',
                 'weight' => '62.7',
         ]);
     }
