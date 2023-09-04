@@ -17,6 +17,7 @@ class Record extends Model
         'training_weight',
         'time',
         'set',
+        'point',
         'part_name',
         'weight',
         'run_time',

@@ -11,7 +11,7 @@ class GraphController extends Controller
     
     public function show(Record $record)
     {
-        return view('graphs.show')->with(['records' => $record->getdatePaginateByLimit(7)]);
+        return view('graphs.weights.show')->with(['records' => $record->getdatePaginateByLimit(7)]);
     }
     
 }

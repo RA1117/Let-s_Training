@@ -33,6 +33,9 @@ class RecordController extends Controller
     public function store(Request $request, Record $record)
     {
         $input = $request['record'];
+        if($input['training_weight'] != NULL){
+            $record->point = $input['training_weight'] * $input['set'] * $input['time'];
+        }
         $record->fill($input)->save();
         return redirect('/records/' . $record->id);
         //return redirect('/records');
