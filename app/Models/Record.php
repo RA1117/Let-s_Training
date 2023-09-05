@@ -43,12 +43,17 @@ class Record extends Model
         return $this->belongsTo(Training::class);
     }
     
-    public function getdatePaginateByLimit(int $limit_count = 5)
+    public function getweightPaginateByLimit(int $limit_count = 5)
     {
         $user = \Auth::user();
-        return  $this->where('user_id', $user['id'])->orderby('date', 'DESC')->paginate($limit_count);
-        //$user = \Auth::user();
-        //return view('records.index')->with(['records' => $record->where('user_id', $user['id'])->orderby('updated_at', 'DESC')->get()]);
+        return  $this->where('user_id', $user['id'])->whereNotNull('weight')->orderby('date', 'DESC')->paginate($limit_count);
     }
+    
+    public function getdietPaginateByLimit(int $limit_count = 5)
+    {
+        $user = \Auth::user();
+        return  $this->where('user_id', $user['id'])->whereNotNull('diet')->orderby('date', 'DESC')->paginate($limit_count);
+    }
+    
     
 }
