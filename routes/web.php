@@ -23,8 +23,8 @@ Route::get('/', function () {
 
 
 Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
-    Route::get('records/graphs/weight_graph', 'show')->name('graph_weight_show');
-    
+    Route::get('records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
+    Route::get('records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
 });
 
 Route::get('/dashboard', function () {
