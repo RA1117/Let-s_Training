@@ -24,6 +24,9 @@
                     <x-nav-link :href="route('graph_weight_index')" :active="request()->routeIs('graph_weight_index')">
                         {{ __('Graph') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('training_index')" :active="request()->routeIs('training_index')">
+                        {{ __('Training') }}
+                    </x-nav-link>
                 </div>
             </div>
 

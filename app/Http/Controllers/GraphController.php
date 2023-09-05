@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Record;
+use App\Models\Training;
 
 class GraphController extends Controller
 {
@@ -21,5 +22,16 @@ class GraphController extends Controller
         return view('graphs.diets.index')->with(['records' => $record->getdietPaginateByLimit(7)]);
     }
     
+    public function graph_training_index(Record $record, Training $training)
+    {
+        $user = \Auth::user();
+        return view('graphs.trainings.index')->with(['records' => $record->where('user_id', $user['id'])->where('training_id', $training['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7)]);
+    }
     
+    public function graph_training_top(Training $training)
+    {
+        $user = \Auth::user();
+        return view('graphs.trainings.top')->with(['trainings' => $training->gettrainingPaginateByLimit()]);
+    }
+
 }

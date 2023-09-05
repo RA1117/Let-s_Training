@@ -36,5 +36,8 @@
 		},
    });
    </script>
+   
+   <div class='paginate'>{{ $records->links() }}</div>
+   
    <!-- グラフを描画ここまで -->
 </x-app-layout>

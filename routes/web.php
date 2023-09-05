@@ -6,6 +6,7 @@ use App\Http\Controllers\PostController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\RecordController;
 use App\Http\Controllers\GraphController;
+use App\Http\Controllers\TrainingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -23,8 +24,10 @@ Route::get('/', function () {
 
 
 Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
-    Route::get('records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
-    Route::get('records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
+    Route::get('/records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
+    Route::get('/records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
+    Route::get('/records/graphs/training_graph', 'graph_training_top')->name('graph_training_top');
+    Route::get('/records/graphs/training_graph/{training}', 'graph_training_index')->name('graph_training_index');
 });
 
 Route::get('/dashboard', function () {
@@ -57,6 +60,11 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
     Route::put('/posts/{post}', 'update')->name('update');
     Route::delete('/posts/{post}', 'delete')->name('delete');
     Route::get('/posts/{post}/edit', 'edit')->name('edit');
+});
+
+Route::controller(TrainingController::class)->middleware(['auth'])->group(function(){
+    Route::get('/trainings', 'index')->name('training_index');
+    //Route::get('records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
 });
 
 Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
