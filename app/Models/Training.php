@@ -19,4 +19,11 @@ class Training extends Model
         return $this->HasMany(Record::class);
     }
     
+    
+    public function gettrainingPaginateByLimit(int $limit_count = 5)
+    {
+        //$user = \Auth::user();
+        return  $this->whereNotNull('training_name')->paginate($limit_count);
+    }
+    
 }
