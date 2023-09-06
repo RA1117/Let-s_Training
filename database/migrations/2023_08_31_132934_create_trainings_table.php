@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->string('training_name')->nullable();
             $table->double('training_weight')->nullable();
+            $table->string('content')->nullable();
+            $table->string('video_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

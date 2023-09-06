@@ -12,4 +12,10 @@ class TrainingController extends Controller
     {
         return view('trainings.index')->with(['trainings' => $training->gettrainingPaginateByLimit()]);
     }
+    
+    public function show(Training $training)
+    {
+        return view('trainings.show')->with(['training' => $training]);
+    }
+    
 }

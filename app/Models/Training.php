@@ -12,6 +12,8 @@ class Training extends Model
     protected $fillable = [
         'training_name',
         'training_weight',
+        'content',
+        'video_id',
     ];
     
     public function records()

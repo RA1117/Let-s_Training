@@ -64,6 +64,7 @@ Route::controller(PostController::class)->middleware(['auth'])->group(function()
 
 Route::controller(TrainingController::class)->middleware(['auth'])->group(function(){
     Route::get('/trainings', 'index')->name('training_index');
+    Route::get('/trainings/{training}', 'show')->name('training_show');
     //Route::get('records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
 });
 

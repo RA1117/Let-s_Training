@@ -9,8 +9,8 @@
     <div class='record content'>
         @foreach($trainings as $training)
             <br>
-            <h2>{{ $training->training_name }}</h2>
+            <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
+            <br>
         @endforeach 
-    <br>
     <div class='paginate'>{{ $trainings->links() }}</div>
 </x-app-layout>
