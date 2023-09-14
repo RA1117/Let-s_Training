@@ -12,10 +12,10 @@
             '{{ $record->date }}',
         @endforeach
 	];
-	//平均体重ログ
+	//食事量
 	var diet_log = [
 		@foreach($records as $record)
-        	{{ $record->weight }},
+        	{{ $record->diet }},
         @endforeach
 	];
 

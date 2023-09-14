@@ -21,6 +21,10 @@ class Training extends Model
         return $this->HasMany(Record::class);
     }
     
+    public function parts()
+    {
+        return $this->belongsToMany(Part::class);
+    }
     
     public function gettrainingPaginateByLimit(int $limit_count = 5)
     {

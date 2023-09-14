@@ -12,7 +12,7 @@
             '{{ $record->date }}',
         @endforeach
 	];
-	//平均体重ログ
+	//体重ログ
 	var weight_log = [
 		@foreach($records as $record)
         	{{ $record->weight }},
@@ -36,7 +36,12 @@
 		},
    });
    </script>
-    
-    <div class='paginate'>{{ $records->links() }}</div>
+   
+   <h2>グラフ</h2>
+   <br>
+   <a href='/records/graphs/diet_graph'><h2 class='diet_graph'>食事</h2></a>
+   <br>
+   <a href='/records/graphs/run_graph'><h2 class='run_graph'>全身</h2></a>
+   <div class='paginate'>{{ $records->links() }}</div>
    <!-- グラフを描画ここまで -->
 </x-app-layout>

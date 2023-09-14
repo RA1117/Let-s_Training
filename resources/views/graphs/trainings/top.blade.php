@@ -10,7 +10,7 @@
         @foreach($trainings as $training)
             @if( $training->training_name != NULL )
                 <br>
-                <a href="/records/graphs/training_graph/{{ $training->id }}">{{ $training->training_name }}</h2>
+                <a href="/records/graphs/training_graph/{{ $training->id }}">{{ $training->training_name }}</a>
                 <br>
             @endif
         @endforeach 
