@@ -31,7 +31,13 @@ class GraphController extends Controller
     public function graph_training_top(Training $training)
     {
         $user = \Auth::user();
-        return view('graphs.trainings.top')->with(['trainings' => $training->gettrainingPaginateByLimit()]);
+        return view('graphs.trainings.top')->with(['trainings' => $training->gettrainingPaginateByLimit(7)]);
+    }
+    
+    public function run_index(Record $record)
+    {
+        $user = \Auth::user();
+        return view('graphs.runs.index')->with(['records' => $record->getrunPaginateByLimit(7)]);
     }
 
 }

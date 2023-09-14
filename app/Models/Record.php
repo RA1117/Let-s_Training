@@ -61,4 +61,10 @@ class Record extends Model
         return  $this->where('user_id', $user['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate($limit_count);
     }
     
+    public function getrunPaginateByLimit(int $limit_count = 5)
+    {
+        $user = \Auth::user();
+        return  $this->where('user_id', $user['id'])->whereNotNull('run_time')->orderby('date', 'DESC')->paginate($limit_count);
+    }
+    
 }

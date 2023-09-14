@@ -21,6 +21,9 @@
                     <x-nav-link :href="route('record.index')" :active="request()->routeIs('record.index')">
                         {{ __('Record') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('body_index')" :active="request()->routeIs('body_index')">
+                        {{ __('Body') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('graph_weight_index')" :active="request()->routeIs('graph_weight_index')">
                         {{ __('Graph') }}
                     </x-nav-link>

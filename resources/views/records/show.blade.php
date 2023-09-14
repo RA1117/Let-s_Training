@@ -24,7 +24,7 @@
                             <h2>筋トレの点数:{{ $record->point }} [point]</h2>
                             <h2>部位:{{ $record->part_name }}</h2>
                         @endif
-                        @if($record->trainin_weight != 1 && $record->training_weight != NULL)    
+                        @if($record->training_weight != 1 && $record->training_weight != NULL)    
                             <h2>重量:{{ $record->training_weight }} [kg]</h2>
                             <h2>回数:{{ $record->time }} [回]</h2>
                             <h2>セット数:{{ $record->set }} [set]</h2>

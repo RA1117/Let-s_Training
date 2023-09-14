@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        　Diet Graph
+        　Run Graph
     </x-slot>
    	<canvas id="myChart"></canvas>
 		<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
@@ -12,10 +12,10 @@
             '{{ $record->date }}',
         @endforeach
 	];
-	//ポイントログ
+	//走行距離ログ
 	var diet_log = [
 		@foreach($records as $record)
-        	{{ $record->point }},
+        	{{ $record->run_distance }},
         @endforeach
 	];
 
@@ -27,7 +27,7 @@
 			labels: labels,
 			datasets: [
 				{
-					label: '筋トレの点数[point]',
+					label: '走行距離[km]',
 					data: diet_log,
 					borderColor: "rgba(0,0,255,1)",
          			backgroundColor: "rgba(0,0,0,0)"
