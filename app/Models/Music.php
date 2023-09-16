@@ -13,14 +13,18 @@ class Music extends Model
         'name',
         'artist',
         'average',
-        'video_path',
-        'body',
-        'review',
+        'video_id',
+        'good',
     ];
     
-    public function users()
+    public function comments()
     {
-        return $this->belongsToMany(User::class);
+        return $this->hasMany(Comment::class);
+    }
+    
+    public function getPaginateByLimit(int $limit_count = 5)
+    {
+        return $this->orderby('average', 'DESC')->paginate($limit_count);
     }
     
 }

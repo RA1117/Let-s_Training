@@ -13,16 +13,14 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('musics', function (Blueprint $table) {
+        Schema::create('music', function (Blueprint $table) {
             $table->id();
-            $table->string('name')->nullable()->comment('曲名');
-            $table->string('arist')->nullable();
+            $table->string('name');
+            $table->string('artist');
+            $table->string('video_id')->nullable();
             $table->double('average')->nullable();
-            $table->string('video_path')->nullable();
-            $table->string('body')->nullable();
-            $table->double('review')->nullable();
+            $table->double('good')->nullable()->default(0);
             $table->timestamps();
-            $table->softDeletes();
         });
     }
 
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('musics');
+        Schema::dropIfExists('music');
     }
 };
