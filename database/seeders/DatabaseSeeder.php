@@ -27,8 +27,11 @@ class DatabaseSeeder extends Seeder
             TrainingSeeder::class,
             RecordSeeder::class,
             BodySeeder::class,
+            MusicSeeder::class,
             PartSeeder::class,
             Part_TrainingSeeder::class,
+            //CommentSeeder::class,
+            //Comment_UserSeeder::class,
         ]);
     }
 }

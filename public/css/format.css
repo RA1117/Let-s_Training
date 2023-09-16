@@ -1,0 +1,46 @@
+/*オレンジのボタン*/
+.btn--orange,
+a.btn--orange {
+  color: #fff;
+  background-color: #eb6100;
+}
+.btn--orange:hover,
+a.btn--orange:hover {
+  color: #fff;
+  background: #f56500;
+}
+
+a{
+    color: red;
+}
+
+input{
+    color: red;
+}
+
+div{
+    margin-bottom: 50px;
+}
+
+.training{
+    font-weight:bold;
+    font-size: 40px;
+}
+    
+
+/*赤色の枠*/
+.flame07 {
+padding: 1em;
+margin: 2em auto;
+width:100%;
+border: double 5px #dc143c;
+}
+
+/*黒色の枠*/
+.flame01 {
+border: 1px solid #000;
+margin: 2em auto;
+padding: 1em;
+width: 100%;
+background-color: #fff;
+}

@@ -52,6 +52,16 @@ class User extends Authenticatable
         return $this->HasMany(Record::class);
     }
     
+    public function comments()
+    {
+        return $this->belongsToMany(Comment::class)->withPivot('comment_id', 'user_id');
+    }
+    
+    public function comment()
+    {
+        return $this->HasMany(Comment::class);
+    }
+    
     public function getByUser(int $limit_count = 5)
     {
         return $this->posts()->with('user')->orderby('updated_at', 'DESC')->paginate($limit_count);

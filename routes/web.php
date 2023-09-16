@@ -9,6 +9,7 @@ use App\Http\Controllers\GraphController;
 use App\Http\Controllers\TrainingController;
 use App\Http\Controllers\PartController;
 use App\Http\Controllers\BodyController;
+use App\Http\Controllers\MusicController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -24,14 +25,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
-    Route::get('/records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
-    Route::get('/records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
-    Route::get('/records/graphs/run_graph', 'run_index')->name('graph_run_index');
-    Route::get('/records/graphs/training_graph', 'graph_training_top')->name('graph_training_top');
-    Route::get('/records/graphs/training_graph/{training}', 'graph_training_index')->name('graph_training_index');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -58,6 +51,27 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
 Route::controller(BodyController::class)->middleware(['auth'])->group(function(){
     Route::get('/bodies', 'index')->name('body_index');
     Route::get('/bodies/{body}', 'show')->name('body_show');
+});
+
+Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
+    Route::get('/records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
+    Route::get('/records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
+    Route::get('/records/graphs/run_graph', 'run_index')->name('graph_run_index');
+    Route::get('/records/graphs/training_graph', 'graph_training_top')->name('graph_training_top');
+    Route::get('/records/graphs/training_graph/{training}', 'graph_training_index')->name('graph_training_index');
+});
+
+Route::controller(MusicController::class)->middleware(['auth'])->group(function(){
+    Route::get('/music', 'index')->name('music_index');
+    Route::post('/music', 'store')->name('music_store');
+    Route::get('/music/create', 'create')->name('music_create');
+    Route::get('/music/{music}', 'show')->name('music_show');
+    Route::post('/music/{music}', 'store_2')->name('music_store_2');
+    Route::get('/music/{music}/register', 'register')->name('music_register');
+    Route::get('/music/{music}/{comment}', 'detail')->name('music_detail');
+    Route::post('/music/{comment}/nice', 'nice')->name('music_nice');
+    Route::post('/music/{comment}/unnice', 'unnice')->name('music_unnice');
+    Route::put('/music/{music}', 'update')->name('update');
 });
 
 Route::controller(PartController::class)->middleware(['auth'])->group(function(){
