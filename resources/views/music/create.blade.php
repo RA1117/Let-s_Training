@@ -2,7 +2,8 @@
     <x-slot name="header">
         　Create
     </x-slot>
-    <h1>Music New Register</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='music'>Music New Register</h1>
     <form action='/music' method='POST' enctype='multipart/form-data'>
         @csrf
         <div class='music_name'>

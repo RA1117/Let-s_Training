@@ -2,8 +2,8 @@
     <x-slot name="header">
         　Music
     </x-slot>
-    <h1>Let's Training</h1>
-    <h1>Music Register</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='music'>Music Register</h1>
     <div class='register'>
         <h2>曲名: {{ $music->name }}</h2>
         <h2 class='artist'>アーティスト名: {{ $music->artist }}</h2>

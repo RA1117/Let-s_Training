@@ -2,6 +2,8 @@
     <x-slot name="header">
         　Blog
     </x-slot>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='Blog'>Blog</h1>
     {{ $post->updated_at}}
     <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
     <h1 class='title'>

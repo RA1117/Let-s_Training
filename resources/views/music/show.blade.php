@@ -2,8 +2,8 @@
     <x-slot name="header">
         　Music
     </x-slot>
-    <h1>Let's Training</h1>
-    <h1>Music Evaluation Detail</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='music'>Music Evaluation</h1>
     @foreach($comments as $comment)
         @if( $music->id == $comment->music_id )
             <div class=flame07>

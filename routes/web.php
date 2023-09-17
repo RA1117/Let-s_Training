@@ -97,3 +97,7 @@ Route::controller(TrainingController::class)->middleware(['auth'])->group(functi
 Route::get('/users/{user}', [UserController::class,'index'])->middleware("auth");
 
 require __DIR__.'/auth.php';
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

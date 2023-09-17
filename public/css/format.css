@@ -9,26 +9,51 @@ a.btn--orange:hover {
   color: #fff;
   background: #f56500;
 }
-
 a{
+    color: blue;
+    font-size: 15px;
+    text-decoration: underline;
+}
+h2{
+  font-size: 17px;
+}
+/*input{
     color: red;
-}
-
-input{
-    color: red;
-}
-
-div{
-    margin-bottom: 50px;
-}
-
+}*/
 .training{
     font-weight:bold;
-    font-size: 40px;
+    font-size: 35px;
 }
-    
-
-/*赤色の枠*/
+/*Record*/
+.record{
+  color: gold;
+  font-size: 30px;
+}
+/*part_name*/
+.part_name{
+  color: #FF55FF;
+  font-size: 30px;
+}
+/*Blog*/
+.Blog{
+  color: #FF0000;
+  font-size: 30px;
+}
+/*music*/
+.music{
+  color: #00FF00;
+  font-size: 30px;
+}
+/*training_list*/
+.training_list{
+  color: #30F9B2;
+  font-size: 30px;
+}
+/*event*/
+.event{
+  color: black;
+  font-size: 25px;
+}
 .flame07 {
 padding: 1em;
 margin: 2em auto;
@@ -43,4 +68,54 @@ margin: 2em auto;
 padding: 1em;
 width: 100%;
 background-color: #fff;
+}
+/*postの枠組み*/
+.box18{
+    margin:2em 0;
+    position: relative;
+    padding: 0.25em 1em;
+    border: solid 2px #ffcb8a;
+    border-radius: 3px 0 3px 0;
+}
+.box18:before,.box18:after
+{
+    content: '';
+    position: absolute;
+    width:10px;
+    height: 10px;
+    border: solid 2px #ffcb8a;
+    border-radius: 50%;
+}
+.box18:after {
+    top:-12px;
+    left:-12px;
+}
+.box18:before {
+    bottom:-12px;
+    right:-12px;
+}
+.box18 p {
+    margin: 0; 
+    padding: 0;
+}
+/*Goldボタン*/
+a.btn-solid-gold {
+  color: #b1921b;
+  border-right: 4px solid #cea82c;
+  border-bottom: 10px solid #987c1e;
+  border-left: 4px solid #ffed8b;
+  border-radius: 0;
+  background: -webkit-gradient(linear, right top, left top, from(#ffd75b), color-stop(30%, #fff5a0), color-stop(40%, #fffabe), color-stop(50%, #ffffdb), color-stop(70%, #fff5a0), to(#fdd456));
+  background: -webkit-linear-gradient(right, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+  background: linear-gradient(-90deg, #ffd75b 0%, #fff5a0 30%, #fffabe 40%, #ffffdb 50%, #fff5a0 70%, #fdd456 100%);
+  text-shadow: -1px -1px 1px #ffffd9;
+}
+
+a.btn-solid-gold:hover {
+  margin-top: 3px;
+
+  color: #b1921b;
+  border-right: 4px solid #cea82c;
+  border-bottom: 7px solid #987c1e;
+  border-left: 4px solid #ffed8b;
 }

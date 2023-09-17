@@ -2,7 +2,8 @@
     <x-slot name="header">
         　Body
     </x-slot>
-    <h1>Let's Training</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='part_name'>Part Name</h1>
     <br>
     <h1>{{ $body->body_name}}</h1>
     <br>

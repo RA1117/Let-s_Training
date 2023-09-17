@@ -2,24 +2,25 @@
     <x-slot name="header">
         　Record
     </x-slot>
-    <h1>Let's Training</h1>
-    <h1>Record</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='record'>Record</h1>
     <br>
     {{ \Carbon\Carbon::now()->format('Y/m/d D') }}
     <h3 class='training_record'>
-        <a href='/records/create'>登録</a>
+        <a href='/records/create' class="btn btn-solid-gold register">登録</a>
     </h3>
     @foreach($records as $record)
-        <div class='date'>
-            <br>
-            <h2>{{ $record->date }}</h2>
-        </div>
-        <div class='weight'>
-            @if($record->weight != NULL)
-                <h2>体重:{{ $record->weight }} [kg]</h2>
-            @endif
-        </div>
-        <div class='record content'>
+        <br>
+        <div class='box25 record content'>
+            <div class='date'>
+                <br>
+                <h2>{{ $record->date }}</h2>
+            </div>
+            <div class='weight'>
+                @if($record->weight != NULL)
+                    <h2>体重:{{ $record->weight }} [kg]</h2>
+                @endif
+            </div>
             @foreach($trainings as $training)
                 @if($record->training_id == $training->id && $training->training_name != NULL)
                         <h2>種目:{{ $training->training_name }}</h2>
@@ -46,13 +47,12 @@
             @if($record->diet != NULL)
                 <h2>食事:{{ $record->diet }} [kcal]</h2>
             @endif
-        </div>
-        <a href='/records/{{ $record->id }}'>確認</a>
+            <a href='/records/{{ $record->id }}'>確認</a>
+        </div>    
     @endforeach
-    <br>
     <div class='graph'>
         <br>
-        <h3>グラフ</h3>
+        <h3>グラフ &#128200;</h3>
         <a href='/records/graphs/weight_graph'>体重</a>
     </div>
     <div class='paginate'>{{ $records->links() }}</div>

@@ -2,9 +2,10 @@
     <x-slot name="header">
         　Record
     </x-slot>
-    <h1>Let's Training</h1>
-    <h1>Record</h1>
-    <div class='date'>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='record'>Record</h1>
+    <div class='box21 record_content'>
+        <div class='date'>
             <br>
             <h2>{{ $record->date }}</h2>
         </div>
@@ -13,7 +14,6 @@
                 <h2>体重:{{ $record->weight }} [kg]</h2>
             @endif
         </div>
-        <div class='record content'>
             @foreach($trainings as $training)
                 @if($record->training_id == $training->id && $training->training_name != NULL)
                         <h2>種目:{{ $training->training_name }}</h2>
@@ -41,8 +41,7 @@
                 <h2>食事:{{ $record->diet }} [kcal]</h2>
             @endif
         </div>
-    <br>
-    <h1>お疲れ様でした!!!</h1>
-    <br>
+        <br>
+        <h1>お疲れ様でした!!!</h1>
     <a href='/records'>戻る</a>
 </x-app-layout>
