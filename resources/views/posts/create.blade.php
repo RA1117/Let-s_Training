@@ -2,7 +2,8 @@
     <x-slot name="header">
         　Create
     </x-slot>
-    <h1>Blog Name</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='Blog'>Blog Create</h1>
     <form action='/posts' method='POST' enctype='multipart/form-data'>
         @csrf
         <div class='title'>

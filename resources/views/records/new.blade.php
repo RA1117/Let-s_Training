@@ -2,8 +2,8 @@
     <x-slot name="header">
         　Record
     </x-slot>
-    <h1>Let's Training</h1>
-    <h1>Record</h1>
+    <h1 class='training'>Let's Training</h1>
+    <h1 class='record'>Record</h1>
     <form action='/records/create' method='POST'>
         @csrf
         <div class='kind'>
