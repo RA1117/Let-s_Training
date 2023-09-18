@@ -12,9 +12,17 @@ use App\Models\Comment_User;
 class MusicController extends Controller
 {
    
-    public function index(Music $music)
+    public function index(Music $music, Request $request)
     {
-        return view('music.index')->with(['Music' => $music->getPaginateByLimit()]);
+        $keyword = $request->input('keyword');
+
+        $query = Music::query();
+        
+        if(!empty($keyword)) {
+            $query->where('name', 'LIKE', "%{$keyword}%")->orwhere('artist', 'LIKE', "%{$keyword}%");
+        }
+        $Music = $query->orderby('average', 'DESC')->paginate(5);
+        return view('music.index', compact('keyword', 'Music'));
     }
     
     public function create(Music $music, Comment $comment)

@@ -54,6 +54,11 @@ h2{
   color: black;
   font-size: 25px;
 }
+/*ページネーション*/
+.paginate{
+  color: blue;
+  font-size: 20px;
+}
 .flame07 {
 padding: 1em;
 margin: 2em auto;

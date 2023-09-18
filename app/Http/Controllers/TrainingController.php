@@ -8,9 +8,18 @@ use App\Models\Training;
 
 class TrainingController extends Controller
 {
-    public function index(Training $training)
+    public function index(Training $training, Request $request)
     {
-        return view('trainings.index')->with(['trainings' => $training->gettrainingPaginateByLimit()]);
+        $keyword = $request->input('keyword');
+
+        $query = Training::query();
+
+        if(!empty($keyword)) {
+            $query->where('training_name', 'LIKE', "%{$keyword}%");
+        }
+
+        $trainings = $query->whereNotNull('training_name')->paginate(5);
+        return view('trainings.index', compact('keyword', 'trainings'));
     }
     
     public function show(Training $training)
