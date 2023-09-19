@@ -14,10 +14,24 @@ class MusicController extends Controller
    
     public function index(Music $music, Request $request)
     {
+        /*いいね数の総数の算出*/
+        $music = Music::get();
+        $comments = Comment::get();
+        $good_count = 0;
+        foreach($music as $music_dev){
+            foreach($comments as $comment){
+                if($comment->music_id == $music_dev->id){
+                    $good_count += $comment->good;
+                }
+            }
+            $music_dev->good = $good_count;
+            $music_dev->save();
+            $good_count = 0;
+        }
         $keyword = $request->input('keyword');
 
         $query = Music::query();
-        
+        /*検索機能*/
         if(!empty($keyword)) {
             $query->where('name', 'LIKE', "%{$keyword}%")->orwhere('artist', 'LIKE', "%{$keyword}%");
         }
@@ -59,6 +73,9 @@ class MusicController extends Controller
     {
         $user = \Auth::user();
         $comment->users()->attach($user);
+        //commentsテーブルのgoodの更新
+        $comment->good = $comment->users()->count();
+        $comment->save();
         return back();
     }
     
@@ -66,6 +83,9 @@ class MusicController extends Controller
     {
         $user = \Auth::user();
         $comment->users()->detach($user);
+        //commentsテーブルのgoodの更新
+        $comment->good = $comment->users()->count();
+        $comment->save();
         return back();
     }
     
@@ -76,6 +96,8 @@ class MusicController extends Controller
         $music->fill($input_music)->save();
         $input_comment = $request['comment'];
         $comment->fill($input_comment)->save();
+        $music->average = $comment->review;
+        $music->save();
         $user = \Auth::user();
         //$comment->users()->attach($user);
         return redirect('/music/' . $music->id);
@@ -87,6 +109,15 @@ class MusicController extends Controller
         $input = $request['comment'];
         $comment->fill($input)->save();
         $user = \Auth::user();
+        //commentsテーブルのreviewの平均点を計算
+        $comment_reviews = Comment::where('music_id', $music->id)->get();
+        $average = 0;
+        foreach($comment_reviews as $comment_review){
+            $average += $comment_review->review;
+        }
+        $comment_reviews_count = $comment_reviews->count();
+        $music->average = $average / $comment_reviews_count;
+        $music->save();
         //$comment->users()->attach($user);
         return redirect('/music/' . $music->id);
     }

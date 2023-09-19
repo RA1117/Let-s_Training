@@ -23,7 +23,7 @@
                     <h2>{{ $loop->iteration }}位 曲名: <a href="/music/{{ $music->id }}">{{ $music->name }}</a></h2>
                     <p class='artist'>アーティスト名: {{ $music->artist }}</p>
                     <p class='average'>評価(平均): {{ $music->average }}</p>
-                    <p class='good'>いいね数: {{ $music->good }}</p>
+                    <p class='good'>いいね数(総数): {{ $music->good }}</p>
                 </div>
             @endforeach
         </div>

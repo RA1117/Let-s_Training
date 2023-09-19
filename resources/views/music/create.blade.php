@@ -22,11 +22,11 @@
         </div>
         <div class='review'>
             <h2>評価(max 5点　＊小数可)</h2>
-            <input type='text' name=comment[review] placeholder='評価'>
+            <input type='text' name='comment[review]' placeholder='評価'>
         </div>
         <div class='body'>
             <h2>クチコミ</h2>
-            <textarea name=comment[body] placeholder='クチコミ'>{{ old('comment.body') }}</textarea>
+            <textarea name='comment[body]' placeholder='クチコミ'>{{ old('comment.body') }}</textarea>
         </div>
         <input type='submit' value='store'>
     </form>
