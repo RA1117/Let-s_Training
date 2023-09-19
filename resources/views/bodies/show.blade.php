@@ -6,8 +6,6 @@
     <h1 class='part_name'>Part Name</h1>
     <br>
     <h1>{{ $body->body_name}}</h1>
-    <br>
-    <h2>種目</h2>
     <div class='record content'>
         @foreach($parts as $part)
             @if( $body->id == $part->body_id )

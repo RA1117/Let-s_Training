@@ -20,11 +20,18 @@
     <div class='record_content'>
         @foreach($trainings as $training)
             <br>
-            <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
+            <div class='training_list_dev'>
+                <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
+            </div>
         @endforeach 
     <div class='paginate'>{{ $trainings->links() }}</div>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .training_list_dev{
+            color: blue;
+            font-size: 15px;
+            text-decoration: underline;
+        }
         #form{
             position:relative;
             max-width:370px;	

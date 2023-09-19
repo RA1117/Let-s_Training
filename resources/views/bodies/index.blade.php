@@ -12,7 +12,7 @@
                     @if($body->body_name == '全身')
                         <li class='run_graph'><a href='/records/graphs/run_graph'>全身</a></li>
                     @else
-                        <li class='body_name'><a href='/bodies/{{ $body->id }}'>{{ $body->body_name }}</a></li>
+                        <li class='body_name'><a href='/records/graphs/training_graph/{{ $body->id }}'>{{ $body->body_name }}</a></li>
                     @endif
                 </div>
                 <br>

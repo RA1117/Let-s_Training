@@ -18,7 +18,7 @@
         @if($body->id == $part->body_id)
             <div class='footer'>
                 <br>
-                <a href='/bodies/{{ $body->id }}'><h2>戻る</h2></a>
+                <a href='/records/graphs/training_graph/{{ $body->id }}'><h2>戻る</h2></a>
             </div>
         @endif
     @endforeach

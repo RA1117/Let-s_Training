@@ -17,21 +17,21 @@ class CommentSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('coomments')->insert([
+        DB::table('comments')->insert([
                 'body' => 'テンポが最高',
                 'review' => 4.8,
                 'good' => 0,
                 'music_id' => 1,
         ]);
         
-        DB::table('coomments')->insert([
+        DB::table('comments')->insert([
                 'body' => 'リズムが最高',
                 'review' => 4.6,
                 'good' => 0,
                 'music_id' => 1,
         ]);
         
-        DB::table('coomments')->insert([
+        DB::table('comments')->insert([
                 'body' => '聞いていて楽しい',
                 'review' => 4.8,
                 'good' => 0,

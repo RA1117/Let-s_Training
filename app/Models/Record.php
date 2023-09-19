@@ -22,6 +22,7 @@ class Record extends Model
         'weight',
         'run_time',
         'run_distance',
+        'body_id',
         'diet',
     ];
     
@@ -41,6 +42,11 @@ class Record extends Model
     public function training()
     {
         return $this->belongsTo(Training::class);
+    }
+    
+    public function body()
+    {
+        return $this->belongsTo(Body::class);
     }
     
     public function getweightPaginateByLimit(int $limit_count = 5)

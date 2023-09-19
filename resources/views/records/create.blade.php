@@ -16,9 +16,11 @@
         <div class='kind'>
             <h2>種類</h2>
             <select name="record[training_id]">
-                <option>--必ず選択してください--</option>
+                <option value="1">--選択してください--</option>
                 @foreach($trainings as $training)
-                    <option value="{{ $training->id }}">{{ $training->training_name }}</option>
+                    @if($training->training_name != null)
+                        <option value="{{ $training->id }}">{{ $training->training_name }}</option>
+                    @endif
                 @endforeach
             </select>
             <div class='new_create'>
@@ -40,7 +42,12 @@
         </div>
         <div class='part_name_create'>
             <h2>部位</h2>
-            <input type='text' name='record[part_name]' placeholder='部位'>
+            <select name="record[part_name]">
+                <option value="null">--選択してください--</option>
+                @foreach($parts as $part)
+                    <option value="{{ $part->part_name }}">{{ $part->part_name }}</option>
+                @endforeach
+            </select>
         </div>
         <div class='run_time'>
             <h2>時間(ランニング)</h2>
@@ -109,6 +116,8 @@
             top: 637px;
         }
         .part_name_create{
+            width: 280px;
+            height: 150px;
             position: absolute;
             left: 270px;
             top: 724px;

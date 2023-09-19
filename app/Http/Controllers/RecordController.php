@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Record;
 use App\Models\User;
 use App\Models\Training;
+use App\Models\Part;
 
 class RecordController extends Controller
 {
@@ -23,11 +24,12 @@ class RecordController extends Controller
         return view('records.show')->with(['record' => $record, 'trainings' => $training->get()]);
     }
     
-    public function create(Training $training)
+    public function create(Training $training, Part $part)
     {
         $user = \Auth::user();
         $trainings = Training::get();
-        return view('records.create', compact('user', 'trainings'));
+        $parts = Part::get();
+        return view('records.create', compact('user', 'trainings', 'parts'));
     }
     
     public function store(Request $request, Record $record)
@@ -35,6 +37,12 @@ class RecordController extends Controller
         $input = $request['record'];
         if($input['training_weight'] != NULL){
             $record->point = $input['training_weight'] * $input['set'] * $input['time'];
+        }
+        $parts = Part::get();
+        foreach($parts as $part){
+            if($part->part_name == $input['part_name']){
+                $record->body_id = $part->body_id;
+            }
         }
         $record->fill($input)->save();
         return redirect('/records/' . $record->id);

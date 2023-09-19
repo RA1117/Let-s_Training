@@ -18,4 +18,9 @@ class Body extends Model
         return $this->HasMany(Part::class);
     }
     
+    public function records()
+    {
+        return $this->HasMany(Record::class);
+    }
+    
 }

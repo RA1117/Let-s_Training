@@ -23,11 +23,11 @@ class Comment_UserSeeder extends Seeder
         
         DB::table('comment_user')->insert([
                 'comment_id' => '1',
-                'user_id' => '4',
+                'user_id' => '3',
         ]);
         
         DB::table('comment_user')->insert([
-                'comment_id' => '1',
+                'comment_id' => '3',
                 'user_id' => '3',
         ]);
     }
