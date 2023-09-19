@@ -25,13 +25,13 @@ class DatabaseSeeder extends Seeder
             UserSeeder::class,
             PostSeeder::class,
             TrainingSeeder::class,
-            RecordSeeder::class,
             BodySeeder::class,
+            RecordSeeder::class,
             MusicSeeder::class,
             PartSeeder::class,
             Part_TrainingSeeder::class,
-            //CommentSeeder::class,
-            //Comment_UserSeeder::class,
+            CommentSeeder::class,
+            Comment_UserSeeder::class,
         ]);
     }
 }

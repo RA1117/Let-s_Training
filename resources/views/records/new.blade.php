@@ -13,6 +13,6 @@
         <input type='submit' value='新規追加'/>
     </form>
     <div class='footer'>
-        <a href='/records'>戻る</a>
+        <a href='/records/create'>戻る</a>
     </div>
 </x-app-layout>

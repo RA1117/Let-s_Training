@@ -50,15 +50,14 @@ Route::controller(RecordController::class)->middleware(['auth'])->group(function
 
 Route::controller(BodyController::class)->middleware(['auth'])->group(function(){
     Route::get('/bodies', 'index')->name('body_index');
-    Route::get('/bodies/{body}', 'show')->name('body_show');
+    //Route::get('/bodies/{body}', 'show')->name('body_show');
 });
 
 Route::controller(GraphController::class)->middleware(['auth'])->group(function(){
     Route::get('/records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
     Route::get('/records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
     Route::get('/records/graphs/run_graph', 'run_index')->name('graph_run_index');
-    Route::get('/records/graphs/training_graph', 'graph_training_top')->name('graph_training_top');
-    Route::get('/records/graphs/training_graph/{training}', 'graph_training_index')->name('graph_training_index');
+    Route::get('/records/graphs/training_graph/{body}', 'graph_training_index')->name('graph_training_index');
 });
 
 Route::controller(MusicController::class)->middleware(['auth'])->group(function(){

@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 
 use App\Models\Record;
 use App\Models\Training;
+use App\Models\Body;
+use App\Models\Part;
 
 class GraphController extends Controller
 {
@@ -22,16 +24,12 @@ class GraphController extends Controller
         return view('graphs.diets.index')->with(['records' => $record->getdietPaginateByLimit(7)]);
     }
     
-    public function graph_training_index(Record $record, Training $training)
+    public function graph_training_index(Record $record, Training $training, Body $body, Part $part)
     {
         $user = \Auth::user();
-        return view('graphs.trainings.index')->with(['records' => $record->where('user_id', $user['id'])->where('training_id', $training['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7)]);
-    }
-    
-    public function graph_training_top(Training $training)
-    {
-        $user = \Auth::user();
-        return view('graphs.trainings.top')->with(['trainings' => $training->gettrainingPaginateByLimit(7)]);
+        $parts = $part->where('body_id', $body['id'])->get();
+        $records = $record->where('user_id', $user['id'])->where('body_id', $body['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7);
+        return view('graphs.trainings.index', compact('parts', 'records'))->with(['body' => $body]);
     }
     
     public function run_index(Record $record)

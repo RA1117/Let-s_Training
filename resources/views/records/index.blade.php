@@ -25,18 +25,18 @@
                 @if($record->training_id == $training->id && $training->training_name != NULL)
                         <h2>種目:{{ $training->training_name }}</h2>
                         @if($record->training_weight == 1)
+                            <h2>部位:{{ $record->part_name }}</h2>
                             <h2>自重</h2>
                             <h2>回数:{{ $record->time }} [回]</h2>
                             <h2>セット数:{{ $record->set }} [set]</h2>
                             <h2>筋トレの点数:{{ $record->point }} [point]</h2>
-                            <h2>部位:{{ $record->part_name }}</h2>
                         @endif
                         @if($record->training_weight != 1 && $record->training_weight != NULL)    
+                            <h2>部位:{{ $record->part_name }}</h2>
                             <h2>重量:{{ $record->training_weight }} [kg]</h2>
                             <h2>回数:{{ $record->time }} [回]</h2>
                             <h2>セット数:{{ $record->set }} [set]</h2>
                             <h2>筋トレの点数:{{ $record->point }} [point]</h2>
-                            <h2>部位:{{ $record->part_name }}</h2>
                         @endif
                 @endif
             @endforeach 

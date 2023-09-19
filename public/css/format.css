@@ -59,6 +59,26 @@ h2{
   color: blue;
   font-size: 20px;
 }
+/*グラフのフォーマット*/
+.page_title{
+		font-size: 30px;
+	}
+.graph_title{
+ text-align: center;
+ font-size: 30px;
+}
+.graph_style{
+ position: absolute;
+  left: 270px;
+  top: 270px;
+ width:1000px;
+ height:500px;
+}
+.graph_link{
+ position: absolute;
+  left: 50px;
+  top: 420px;
+}
 .flame07 {
 padding: 1em;
 margin: 2em auto;

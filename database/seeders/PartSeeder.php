@@ -137,7 +137,7 @@ class PartSeeder extends Seeder
         
         DB::table('parts')->insert([
                 'body_id' => 6,
-                'part_name' => '下腿三頭筋筋',
+                'part_name' => '下腿三頭筋',
                 'created_at' => new DateTime(),
                 'updated_at' => new DateTime(),
         ]);
