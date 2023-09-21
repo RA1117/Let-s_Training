@@ -20,22 +20,25 @@ class CommentSeeder extends Seeder
         DB::table('comments')->insert([
                 'body' => 'テンポが最高',
                 'review' => 4.8,
-                'good' => 0,
+                'good' => 1,
                 'music_id' => 1,
+                'user_id' => 2,
         ]);
         
         DB::table('comments')->insert([
                 'body' => 'リズムが最高',
                 'review' => 4.6,
-                'good' => 0,
+                'good' => 1,
                 'music_id' => 1,
+                'user_id' => 3,
         ]);
         
         DB::table('comments')->insert([
                 'body' => '聞いていて楽しい',
                 'review' => 4.8,
-                'good' => 0,
+                'good' => 1,
                 'music_id' => 2,
+                'user_id' => 3,
         ]);
     }
 }

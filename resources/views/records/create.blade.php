@@ -66,7 +66,7 @@
             <input type='text' name='record[weight]' placeholder='体重[kg]'>
         </div>
         <div class='register'>
-            <input type="submit" value="Training Register">
+            <input id='training_submit' type="submit" value="Training Register">
         </div>
     </form>
     <div class='footer'>
@@ -117,7 +117,7 @@
         }
         .part_name_create{
             width: 280px;
-            height: 150px;
+            height: 120px;
             position: absolute;
             left: 270px;
             top: 724px;
@@ -151,9 +151,21 @@
         .register{
             color: red;
             position: absolute;
-            right: 590px;
+            right: 570px;
             top: 780px;
         }
-        
+        #training_submit{
+          display: inline-block;
+          padding: 0.3em 1em;
+          text-decoration: none;
+          color: #FF367F;
+          border: solid 2px #FF367F;
+          border-radius: 3px;
+          transition: .4s;
+        }
+        #training_submit:hover {
+          background: #FF367F;
+          color: white;
+        }
     </style>
 </x-app-layout>

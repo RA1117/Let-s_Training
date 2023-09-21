@@ -3,23 +3,19 @@
         　Diet Graph
     </x-slot>
     <h1 class='training'>Let's Training</h1>
-    <h1 class=graph_title>{{ $body->body_name}}の推移</h1>
+    <h1 class=graph_title>{{ $part->part_name}}の推移</h1>
     <h1 class='part_name'>Part Name</h1>
-    <h1 class=body_name>{{ $body->body_name}}</h1>
+    <h1 class=body_name>{{ $part->part_name}}</h1>
     <div class='graph_style'>
    		<canvas id="myChart"></canvas>
    	</div>
     <div class='record_content'>
-        @foreach($parts as $part)
-            @if( $body->id == $part->body_id )
-                <br>
-                <a href='/parts/{{ $part->id }}'>{{ $part->part_name }}</a>
-                <br>
-            @endif
-        @endforeach
+        <br>
+        <a href='/parts/{{ $part->id }}'>{{ $part->part_name }}</a>
+        <br>
         <br>
         <div class='footer'>
-            <a href='/bodies'><h2>戻る</h2></a>
+            <a href='/records/graphs/training_graph/{{ $body->id }}'><h2>戻る</h2></a>
         </div>
     </div>
 	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
@@ -28,13 +24,32 @@
 	//ラベル
 	var labels = [
 		@foreach($records as $record)
-            '{{ $record->date }}',
+			@if($a != $record->date)
+	        	'{{ $record->date }}',
+	        	@php
+	        		$a = $record->date;
+	        	@endphp
+	        @elseif($records[$i] == $record)
+	        	'{{ $record->date }}',
+	        @endif
         @endforeach
 	];
 	//ポイントログ
-	var diet_log = [
+	var part_log = [
 		@foreach($records as $record)
-        	{{ $record->point }},
+			@if($a != $record->date)
+	        	{{ $point }},
+	        	@php
+	        		$a = $record->date;
+	        	@endphp
+	        @else
+	        	@php
+	        		$point += $record->point;
+	        	@endphp
+	        	@if($records[$i] == $record)
+	        		{{ $point }},
+	        	@endif
+	        @endif
         @endforeach
 	];
 
@@ -45,16 +60,9 @@
 		data : {
 			labels: labels,
 			datasets: [
-				@foreach($parts as $part)
 						{
 							label: '{{$part->part_name}}の点数[point]',
-							data: [
-								@foreach($records as $record)
-									@if($record->part_name == $part->part_name)
-										'{{ $record->point }}',
-									@endif
-						        @endforeach
-							],
+							data: part_log,
 							@if($part->part_name == '大胸筋上部')
 								borderColor: "rgba(0,0,255,1)",
 							@elseif($part->part_name == '大胸筋中部')
@@ -64,37 +72,36 @@
 							@elseif($part->part_name == '大胸筋全体')
 								borderColor: "rgba(0,255,255,1)",
 							@elseif($part->part_name == '広背筋')
-								borderColor: "rgba(255,0,0,1)",
+								borderColor: "rgba(255,255,0,1)",
 							@elseif($part->part_name == '僧帽筋')
-							borderColor: "rgba(0,255,0,1)",
+							borderColor: "rgba(255,0,255,1)",
 							@elseif($part->part_name == '三角筋前部')
-							borderColor: "rgba(255,0,0,1)",
+							borderColor: "rgba(138,43,226,1)",
 							@elseif($part->part_name == '三角筋中部')
-							borderColor: "rgba(0,255,0,1)",
+							borderColor: "rgba(255,127,147,1)",
 							@elseif($part->part_name == '三角筋後部')
-							borderColor: "rgba(0,0,255,1)",
+							borderColor: "rgba(128,0,128,1)",
 							@elseif($part->part_name == '上腕二頭筋')
-								borderColor: "rgba(255,0,0,1)",
+								borderColor: "rgba(255,215,0,1)",
 							@elseif($part->part_name == '上腕三頭筋')
-								borderColor: "rgba(0,255,0,1)",
+								borderColor: "rgba(240,230,140,1)",
 							@elseif($part->part_name == '前腕筋')
-								borderColor: "rgba(0,0,255,1)",
+								borderColor: "rgba(173,255,47,1)",
 							@elseif($part->part_name == '腹直筋')
-								borderColor: "rgba(255,0,0,1)",
+								borderColor: "rgba(106,90,205,1)",
 							@elseif($part->part_name == '腹斜筋')
-								borderColor: "rgba(0,255,0,1)",
+								borderColor: "rgba(205,92,92,1)",
 							@elseif($part->part_name == '大臀筋')
-								borderColor: "rgba(255,0,0,1)",
+								borderColor: "rgba(102,205,170,1)",
 							@elseif($part->part_name == '大腿四頭筋')
-								borderColor: "rgba(0,255,0,1)",
+								borderColor: "rgba(127,255,212,1)",
 							@elseif($part->part_name == '大腿二頭筋')
-								borderColor: "rgba(0,0,255,1)",
+								borderColor: "rgba(50,205,50,1)",
 							@elseif($part->part_name == '下腿三頭筋')
 								borderColor: "rgba(0,255,255,1)",
 							@endif
 		         			backgroundColor: "rgba(0,0,0,0)"
 						},
-				@endforeach
 			]
 		},
    });

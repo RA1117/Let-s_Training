@@ -20,7 +20,7 @@
                         @if($comment_user->pivot->comment_id == $comment->id)
                             <form action="{{route('music_unnice', $comment)}}" method="POST">
                                 @csrf
-                                <input type="submit" value="いいね {{$comment->users()->count()}}"　class="btn btn-success btn-sm">
+                                <input type="submit" value="いいね {{$comment->good}}"　class="btn btn-success btn-sm">
                             </form>
                             @php
                                 $g=1;
@@ -31,7 +31,7 @@
                 @if($g == 0)
                     <form action="{{route('music_nice', $comment)}}" method="POST">
                         @csrf
-                        <input type="submit" value="いいね {{$comment->users()->count()}}"　class="btn btn-success btn-sm">
+                        <input type="submit" value="いいね {{$comment->good}}"　class="btn btn-success btn-sm">
                     </form>    
                 @endif
             </div>

@@ -32,6 +32,33 @@ class GraphController extends Controller
         return view('graphs.trainings.index', compact('parts', 'records'))->with(['body' => $body]);
     }
     
+    public function graph_training_body(Record $record, Training $training, Body $body, Part $part)
+    {
+        $user = \Auth::user();
+        $parts = $part->where('body_id', $body['id'])->get();
+        $records = $record->where('user_id', $user['id'])->where('body_id', $body['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7);
+        $a = NULL;
+        if(is_array($records) && !empty($records)){
+            $a = $records[0]->date;
+        }
+        $point = NULL;
+        $i = $records->count()-1;
+        return view('graphs.trainings.body', compact('parts', 'records', 'a', 'point', 'i'))->with(['body' => $body]);
+    }
+    
+    public function graph_training_part(Record $record, Training $training, Body $body, Part $part)
+    {
+        $user = \Auth::user();
+        $records = $record->where('user_id', $user['id'])->where('part_name', $part['part_name'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7);
+        $a = NULL;
+        if(is_array($records) && !empty($records)){
+            $a = $records[0]->date;
+        }
+        $point = NULL;
+        $i = $records->count()-1;
+        return view('graphs.trainings.part', compact('records', 'a', 'point', 'i'))->with(['part' => $part, 'body' => $body]);
+    }
+    
     public function run_index(Record $record)
     {
         $user = \Auth::user();

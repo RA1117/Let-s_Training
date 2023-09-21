@@ -43,7 +43,7 @@
 				{
 					label: '食事量[kcal]',
 					data: diet_log,
-					borderColor: "rgba(0,0,255,1)",
+					borderColor: "rgba(0,250,154,1)",
          			backgroundColor: "rgba(0,0,0,0)"
 				},
 			]
