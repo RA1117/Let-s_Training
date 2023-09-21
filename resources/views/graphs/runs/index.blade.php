@@ -43,7 +43,7 @@
 				{
 					label: '走行距離[km]',
 					data: diet_log,
-					borderColor: "rgba(0,0,255,1)",
+					borderColor: "rgba(255,69,0,1)",
          			backgroundColor: "rgba(0,0,0,0)"
 				},
 			]
