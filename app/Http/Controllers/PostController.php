@@ -17,13 +17,39 @@ class PostController extends Controller
     
     public function show(Post $post)
     {
-        return view('posts/show')->with(['post' => $post]);
+        $user = \Auth::user();
+        return view('posts/show', compact('user'))->with(['post' => $post]);
     }
     
     public function create()
     {
         $user = \Auth::user();
         return view('posts/create', compact('user'));
+    }
+    
+    public function edit(Post $post)
+    {
+        $user = \Auth::user();
+        return view('posts/edit', compact('user'))->with(['post' => $post]);
+    }
+    
+    public function update(PostRequest $request, Post $post)
+    {
+        $input = $request['post'];
+        
+        if($request->file('file') != NULL)
+        {   
+            $dir = 'sample';
+            $file_name = $request->file('file')->getClientOriginalName();
+            $request->file('file')->storeAs('public/' . $dir, $file_name);
+            $post->file_name = $file_name;
+            $post->file_path = 'storage/' . $dir . '/' . $file_name;   
+        }
+        
+        $post->fill($input)->save();
+        
+        //$post->save();
+        return redirect('/posts/' . $post->id);
     }
     
     public function store(PostRequest $request, Post $post)
