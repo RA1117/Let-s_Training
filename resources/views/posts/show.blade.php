@@ -18,6 +18,11 @@
             @endif
         </div>
     </div>
+    <div class='edit'>
+        @if($user->id == $post->user_id)
+        <a href='/posts/{{ $post->id }}/edit'>edit</a>
+        @endif
+    </div>
     <div class='footer'>
         <a href='/'>戻る</a>
     </div>
