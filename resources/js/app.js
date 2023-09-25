@@ -3,7 +3,8 @@ import './bootstrap';
 
 import Alpine from 'alpinejs';
 
-import './chartjs';
+//import './chartjs';
+
 window.Alpine = Alpine;
 
 Alpine.start();
