@@ -38,10 +38,22 @@
                     {{ __('Forgot your password?') }}
                 </a>
             @endif
-
             <x-primary-button class="ml-3">
                 {{ __('Log in') }}
             </x-primary-button>
         </div>
+        <a class="btn btn--blue" href='/register'>新規登録</a>
     </form>
+    <style>
+        .btn--blue,
+        a.btn--blue {
+          color: #fff;
+          background-color: blue;
+        }
+        .btn--blue:hover,
+        a.btn--blue:hover {
+          color: #fff;
+          background: blue;
+        }
+    </style>
 </x-guest-layout>
