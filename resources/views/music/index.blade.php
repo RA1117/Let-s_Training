@@ -32,7 +32,7 @@
         <div class='new_create'>
             <h2><a href="/music/create" class="btn btn--orange">新規作成</a>(曲・アーティスト)</h2>
         </div>
-        <div class='paginate'>{{ $Music->links() }}</div>
+        <div class='paginate'>{{ $Music->links('vendor.pagination.tailwind') }}</div>
     </div>
     <style>
         .music_back{

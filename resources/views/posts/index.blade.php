@@ -28,7 +28,7 @@
     <div class='user'>
         <p>ログインユーザー：{{ Auth::user()->name }}</p>
     </div>
-    <div class='paginate'>{{ $posts->links() }}</div>
+    <div class='paginate'>{{ $posts->links('vendor.pagination.tailwind') }}</div>
     <script>
         function deletePost(id) {
             'use strict'
