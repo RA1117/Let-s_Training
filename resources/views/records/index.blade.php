@@ -55,5 +55,5 @@
         <h3>グラフ &#128200;</h3>
         <a href='/records/graphs/weight_graph'>体重</a>
     </div>
-    <div class='paginate'>{{ $records->links() }}</div>
+    <div class='paginate'>{{ $records->links('vendor.pagination.tailwind') }}</div>
 </x-app-layout>

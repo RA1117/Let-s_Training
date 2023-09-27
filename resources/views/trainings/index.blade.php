@@ -24,7 +24,7 @@
                 <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
             </div>
         @endforeach 
-    <div class='paginate'>{{ $trainings->links() }}</div>
+    <div class='paginate'>{{ $trainings->links('vendor.pagination.tailwind') }}</div>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .training_list_dev{

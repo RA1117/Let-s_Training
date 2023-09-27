@@ -51,5 +51,44 @@ class TrainingSeeder extends Seeder
                 'updated_at' => new DateTime(),
         ]);
         
+        DB::table('trainings')->insert([
+                'training_name' => 'ラットプルダウン',
+                'training_weight' => '62.5',
+                'video_id' => 'vaWma9yX0CQ',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('trainings')->insert([
+                'training_name' => 'ショルダープレス',
+                'training_weight' => '62.5',
+                'video_id' => 'Leds7XNv6GM',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('trainings')->insert([
+                'training_name' => 'チェストプレス',
+                'training_weight' => '62.5',
+                'video_id' => 'NMLFTGXgXvo',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('trainings')->insert([
+                'training_name' => 'レッグプレス',
+                'training_weight' => '62.5',
+                'video_id' => '7_qPg97ys4g',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
+        
+        DB::table('trainings')->insert([
+                'training_name' => 'スクワット',
+                'training_weight' => '62.5',
+                'video_id' => 'ZkPqgvolctM',
+                'created_at' => new DateTime(),
+                'updated_at' => new DateTime(),
+        ]);
     }
 }
