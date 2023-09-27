@@ -1,6 +1,6 @@
 <x-app-layout>
     <x-slot name="header">
-        　Diet Graph
+        　Body Graph
     </x-slot>
     <h1 class='training'>Let's Training</h1>
     <h1 class=graph_title>{{ $body->body_name}}の推移</h1>
@@ -27,36 +27,47 @@
    <script>
 	//ラベル
 	var labels = [
-		@foreach($records as $record)
+		@foreach($records as $index => $record)
+			@if($index == 0)
+				@php
+	        		$a = $record->date;
+	        	@endphp
+	        @endif
 			@if($a != $record->date)
-	        	'{{ $record->date }}',
+	        	'{{ $records[$index-1]->date }}',
 	        	@php
 	        		$a = $record->date;
 	        	@endphp
-	        @elseif($records[$i] == $record)
+	        @endif
+	        @if($records[$i] == $record)
 	        	'{{ $record->date }}',
 	        @endif
         @endforeach
 	];
 	//ポイントログ
 	var body_log = [
-		@foreach($records as $record)
+		@foreach($records as $index => $record)
+			@if($index == 0)
+				@php
+	        		$a = $record->date;
+	        	@endphp
+	        @endif
 			@if($a != $record->date)
 	        	{{ $point }},
 	        	@php
 	        		$a = $record->date;
+	        		$point = $record->point;
 	        	@endphp
 	        @else
 	        	@php
 	        		$point += $record->point;
 	        	@endphp
-	        	@if($records[$i] == $record)
-	        		{{ $point }},
-	        	@endif
+	        @endif
+	        @if($records[$i] == $record)
+	        	{{ $point }},
 	        @endif
         @endforeach
 	];
-	
 	//グラフを描画
    var ctx = document.getElementById("myChart");
    var myChart = new Chart(ctx, {

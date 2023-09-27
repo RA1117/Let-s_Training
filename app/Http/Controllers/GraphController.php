@@ -38,9 +38,9 @@ class GraphController extends Controller
         $parts = $part->where('body_id', $body['id'])->get();
         $records = $record->where('user_id', $user['id'])->where('body_id', $body['id'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7);
         $a = NULL;
-        if(is_array($records) && !empty($records)){
+        /*if(!is_array($records) && !empty($records)){
             $a = $records[0]->date;
-        }
+        }*/
         $point = NULL;
         $i = $records->count()-1;
         return view('graphs.trainings.body', compact('parts', 'records', 'a', 'point', 'i'))->with(['body' => $body]);
@@ -51,9 +51,9 @@ class GraphController extends Controller
         $user = \Auth::user();
         $records = $record->where('user_id', $user['id'])->where('part_name', $part['part_name'])->whereNotNull('point')->orderby('date', 'DESC')->paginate(7);
         $a = NULL;
-        if(is_array($records) && !empty($records)){
+        /*if(!is_array($records) && !empty($records)){
             $a = $records[0]->date;
-        }
+        }*/
         $point = NULL;
         $i = $records->count()-1;
         return view('graphs.trainings.part', compact('records', 'a', 'point', 'i'))->with(['part' => $part, 'body' => $body]);
