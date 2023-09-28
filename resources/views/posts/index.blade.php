@@ -17,11 +17,18 @@
                 @if($post->file_path != NULL)
                     <img src='{{ asset($post->file_path) }}'>
                 @endif
-                <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
-                    @csrf
-                    @method('DELETE')
-                    <button type='button' onclick='deletePost({{ $post->id }})'>delete</button>
-                </form>
+                <div class='edit'>
+                    @if($user->id == $post->user_id)
+                    <a href='/posts/{{ $post->id }}/edit'>edit</a>
+                    @endif
+                </div>
+                @if($user->id == $post->user_id)
+                    <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
+                        @csrf
+                        @method('DELETE')
+                        <button id='delete' type='button' onclick='deletePost({{ $post->id }})'>delete</button>
+                    </form>
+                @endif
             </div>
         @endforeach
     </div>
@@ -38,4 +45,9 @@
             }
         }
     </script>
+    <style>
+        #delete{
+            color: red;
+        }
+    </style>
 </x-app-layout>

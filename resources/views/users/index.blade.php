@@ -12,11 +12,18 @@
                     <a href="/users/{{ $post->user->id }}">{{ $post->user->name }}</a>
                     <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                     <p class='body'>{{ $post->body }}</p>
-                <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
-                    @csrf
-                    @method('DELETE')
-                    <button type='button' onclick='deletePost({{ $post->id }})'>delete</button>
-                </form>
+                <div class='edit'>
+                    @if($User->id == $post->user_id)
+                    <a href='/posts/{{ $post->id }}/edit'>edit</a>
+                    @endif
+                </div>
+                @if($User->id == $post->user_id)
+                    <form action='/posts/{{ $post->id }}' id='form_{{ $post->id }}' method='post'>
+                        @csrf
+                        @method('DELETE')
+                        <button id='delete' type='button' onclick='deletePost({{ $post->id }})'>delete</button>
+                    </form>
+                @endif
             </div>
         @endforeach
         <div class='footer'>
@@ -33,4 +40,9 @@
             }
         }
     </script>
+    <style>
+        #delete{
+            color: red;
+        }
+    </style>
 </x-app-layout>

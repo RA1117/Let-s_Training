@@ -9,6 +9,7 @@ class UserController extends Controller
 {
     public function index (User $user)
     {
-        return view('users.index')->with(['posts' => $user->getByUser()]);
+        $User = \Auth::user();
+        return view('users.index', compact('User'))->with(['posts' => $user->getByUser()]);
     }
 }
