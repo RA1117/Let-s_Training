@@ -13,6 +13,9 @@
             <h2>日付</h2>
             <input type='text' name='record[date]' placeholder='日付' value={{ now() }}>
         </div>
+        <div class='comment'>
+            *全項目空欄可能です
+        </div>
         <div class='kind'>
             <h2>種類</h2>
             <select name="record[training_id]">
@@ -24,7 +27,7 @@
                 @endforeach
             </select>
             <div class='new_create'>
-                <a href='/records/new_create'>新規</a>
+                <a href='/records/new_create'>種目の新規追加</a>
             </div>
         </div>
         <br>
@@ -87,6 +90,9 @@
             height: 55px;
         }
         .date{
+            text-align: center;
+        }
+        .comment{
             text-align: center;
         }
         .kind{
