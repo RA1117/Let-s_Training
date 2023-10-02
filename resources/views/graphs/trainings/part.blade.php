@@ -112,7 +112,7 @@
 							@elseif($part->part_name == '下腿三頭筋')
 								borderColor: "rgba(0,255,255,1)",
 							@endif
-		         			backgroundColor: "rgba(0,0,0,0)"
+		         			backgroundColor: "rgba(225,225,225,8)"
 						},
 			]
 		},

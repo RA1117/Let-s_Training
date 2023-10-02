@@ -25,9 +25,21 @@
             <input type='file' name='file' class='form-control'>
         </div>
         
-        <input type='submit' value='update'>
+        <input type='submit' value='update' class='update'>
     </form>
     <div class='footer'>
         <a href='/posts/{{ $post->id }}'>戻る</a>
     </div>
+    <style>
+        .update{
+            color:white;
+            background-color: orange;
+            padding: 0em 0.4em;
+            border-radius: 100vh;
+        }
+        .update:hover{
+            background: black;
+            color: white;
+        }
+    </style>
 </x-app-layout>

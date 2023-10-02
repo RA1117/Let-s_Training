@@ -11,14 +11,14 @@
         </div>
         <div class='date'>
             <h2>日付</h2>
-            <input type='text' name='record[date]' placeholder='日付' value={{ now() }}>
+            <input type='date' name='record[date]' placeholder='日付' value={{ now() }}>
         </div>
         <div class='comment'>
             *全項目空欄可能です
         </div>
         <div class='kind'>
             <h2>種類</h2>
-            <select name="record[training_id]">
+            <select name="record[training_id]" id="kind">
                 <option value="1">--選択してください--</option>
                 @foreach($trainings as $training)
                     @if($training->training_name != null)
@@ -45,7 +45,7 @@
         </div>
         <div class='part_name_create'>
             <h2>部位</h2>
-            <select name="record[part_name]">
+            <select name="record[part_name]" id='part_name'>
                 <option value="null">--選択してください--</option>
                 @foreach($parts as $part)
                     <option value="{{ $part->part_name }}">{{ $part->part_name }}</option>
@@ -76,9 +76,9 @@
         <a href='/records'>戻る</a>
     </div>
     <style>
-        body{
+        /*body{
             background-color: white;
-        }
+        }*/
         select{
             width: 100%;
             height: 55px;
@@ -157,8 +157,11 @@
         .register{
             color: red;
             position: absolute;
-            right: 570px;
             top: 780px;
+            left: 50%;
+            transform: translateX(-50%);
+            -webkit-transform: translateX(-50%);
+            -ms-transform: translateX(-50%);
         }
         #training_submit{
           display: inline-block;

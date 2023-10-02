@@ -91,7 +91,7 @@
 							@elseif($body->body_name == '脚')
 							borderColor: "rgba(255,0,255,1)",
 							@endif
-		         			backgroundColor: "rgba(0,0,0,0)"
+		         			backgroundColor: "rgba(225,225,225,8)"
 						},
 			]
 		},

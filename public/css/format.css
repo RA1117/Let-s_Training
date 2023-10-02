@@ -1,3 +1,11 @@
+.header_color{
+    background-color: Cornsilk;
+}
+/*record機能の背景色*/
+.record_back{
+    background-color: rgba(127,255,212,0.50);
+    background-size:cover;
+}
 /*オレンジのボタン*/
 .btn--orange,
 a.btn--orange {
@@ -99,7 +107,7 @@ background-color: #fff;
     margin:2em 0;
     position: relative;
     padding: 0.25em 1em;
-    border: solid 2px #ffcb8a;
+    border: solid 2px black;
     border-radius: 3px 0 3px 0;
 }
 .box18:before,.box18:after
@@ -108,7 +116,7 @@ background-color: #fff;
     position: absolute;
     width:10px;
     height: 10px;
-    border: solid 2px #ffcb8a;
+    border: solid 2px black;
     border-radius: 50%;
 }
 .box18:after {
@@ -144,3 +152,4 @@ a.btn-solid-gold:hover {
   border-bottom: 7px solid #987c1e;
   border-left: 4px solid #ffed8b;
 }
+

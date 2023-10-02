@@ -5,6 +5,7 @@
     <h1 class='training'>Let's Training</h1>
     <h1 class='part_name'>Part Name</h1>
     <br>
+    <img src="{{ asset('images/body.png'); }}" class='body-image'>
     <div class='parts'>
         <ui>
             @foreach($bodies as $body)
@@ -22,4 +23,11 @@
             <li class='weight_graph'><a href='/records/graphs/weight_graph'>体重</a></li>
         </ui>
     </div>
+    <style>
+        .body-image{
+            float:right;
+            margin-right: 25rem;
+            height: 450px;
+        }
+    </style>
 </x-app-layout>

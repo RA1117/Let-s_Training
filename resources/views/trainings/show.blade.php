@@ -6,7 +6,7 @@
     <h1 class='training_list'>Training List</h1>
     <br>
     <div class="embed-responsive embed-responsive-16by9">
-        <h1 class='video'>動画: <a href="https://www.youtube.com/watch?v={{ $training->video_id }}">{{ $training->training_name }}のフォーム</a></h1>
+        <h1 class='video'>動画: <iframe width="560" height="315" src="https://www.youtube.com/embed/{{ $training->video_id }}">{{ $training->training_name }}のフォーム</iframe></h1>
     </div>
     <div class='footer'>
         <br>

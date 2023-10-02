@@ -57,6 +57,7 @@ Route::controller(GraphController::class)->middleware(['auth'])->group(function(
     Route::get('/records/graphs/weight_graph', 'weight_index')->name('graph_weight_index');
     Route::get('/records/graphs/diet_graph', 'diet_index')->name('graph_diet_index');
     Route::get('/records/graphs/run_graph', 'run_index')->name('graph_run_index');
+    //Route::get('/bodies', 'index')->name('body_index');
     Route::get('/records/graphs/training_graph/{body}', 'graph_training_body')->name('graph_training_body');
     Route::get('/records/graphs/training_graph/{body}/{part}', 'graph_training_part')->name('graph_training_part');
     //Route::get('/records/graphs/training_graph/{body}', 'graph_training_index')->name('graph_training_index');
