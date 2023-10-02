@@ -29,7 +29,7 @@
                         <a href='/posts/{{ $post->id }}'><h2 class='title'>{{ $post->title }}</h2></a>
                         <p class='body'>{{ $post->body }}</p>
                         @if($post->file_path != NULL)
-                            <img src='{{ asset($post->file_path) }}'>
+                            <img src="{{ asset($post->file_path); }}">
                         @endif
                     </div>
                 @endforeach
