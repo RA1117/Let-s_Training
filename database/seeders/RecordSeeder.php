@@ -54,7 +54,7 @@ class RecordSeeder extends Seeder
         
         DB::table('records')->insert([
                 'date' => 20230823,
-                'training_name' => '腹直筋',
+                'training_name' => 'スクワット',
                 'body_id' => 5,
                 'time' => '30',
                 'set' => '3',

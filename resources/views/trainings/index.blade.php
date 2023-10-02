@@ -2,31 +2,42 @@
     <x-slot name="header">
         　Record
     </x-slot>
-    <h1 class='training'>Let's Training</h1>
-    <h1 class='training_list'>Training List</h1>
-    <div class='search'>
-      <form id="form" action="{{ route('training_index') }}" method="GET">
-        @csrf
-        <input id="sbox" type="text" name="keyword" value="{{ $keyword }}" placeholder="トレーニング名を入力">
-        <input id='sbtn' type="submit" value="検索">
-        <button>
-            <a href="{{ route('training_index') }}" class='can_button'>
-                キャンセル
-            </a>
-        </button>
-      </form>
-    </div>
-    <h2 class=event>種目一覧</h2>
-    <div class='record_content'>
-        @foreach($trainings as $training)
-            <br>
-            <div class='training_list_dev'>
-                <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
+    <div class="training_back">
+        <div class="shading">
+            <h1 class='training'>Let's Training</h1>
+            <h1 class='training_list'>Training List</h1>
+            <div class='search'>
+              <form id="form" action="{{ route('training_index') }}" method="GET">
+                @csrf
+                <input id="sbox" type="text" name="keyword" value="{{ $keyword }}" placeholder="トレーニング名を入力">
+                <input id='sbtn' type="submit" value="検索">
+                <button>
+                    <a href="{{ route('training_index') }}" class='can_button'>
+                        キャンセル
+                    </a>
+                </button>
+              </form>
             </div>
-        @endforeach 
-    <div class='paginate'>{{ $trainings->links('vendor.pagination.tailwind') }}</div>
+            <h2 class=event>種目一覧</h2>
+            <div class='record_content'>
+                @foreach($trainings as $training)
+                    <br>
+                    <div class='training_list_dev'>
+                        <a href='/trainings/{{ $training->id }}'>{{ $training->training_name }}</a>
+                    </div>
+                @endforeach 
+            <div class='paginate'>{{ $trainings->links('vendor.pagination.tailwind') }}</div>
+        </div>
+    </div>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        .training_back{
+            background-image: url({{ url::asset('images/dumbbell.jpg'); }});
+            background-size:cover;
+        }
+        .shading{
+            background-color: rgba(255, 255, 255, 0.40);
+        }
         .training_list_dev{
             color: blue;
             font-size: 15px;

@@ -44,7 +44,7 @@
 					label: '体重[kg]',
 					data: weight_log,
 					borderColor: "rgba(255,20,147,1)",
-         			backgroundColor: "rgba(0,0,0,0)"
+         			backgroundColor: "rgba(225,225,225,8)"
 				},
 			]
 		},
