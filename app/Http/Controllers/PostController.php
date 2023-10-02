@@ -61,9 +61,9 @@ class PostController extends Controller
         {   
             $dir = 'sample';
             $file_name = $request->file('file')->getClientOriginalName();
-            $request->file('file')->storeAs('public/' . $dir, $file_name);
+            $request->file('file')->storeAs('public/' , $file_name);
             $post->file_name = $file_name;
-            $post->file_path = 'storage/' . $dir . '/' . $file_name;   
+            $post->file_path = 'storage/' . $file_name;   
         }
         
         $post->fill($input)->save();
