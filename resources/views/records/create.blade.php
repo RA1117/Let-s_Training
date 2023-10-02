@@ -54,7 +54,7 @@
         </div>
         <div class='run_time'>
             <h2>時間(ランニング)</h2>
-            <input type='text' name='record[run_time]' placeholder='時間[12030]=(1h/20m/30s)'>
+            <input type='text' name='record[run_time]' placeholder='時間[003000]=(0h/30m/00s)'>
         </div>
         <div class='run_distance'>
             <h2>距離(ランニング)</h2>
